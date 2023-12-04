@@ -3,7 +3,7 @@ package qpassessment.Service;
 import org.springframework.stereotype.Service;
 import qpassessment.Exception.ResourceNotFoundException;
 import qpassessment.Model.Item;
-import qpassessment.Respository.ItemRepository;
+import qpassessment.Repository.ItemRepository;
 
 import java.util.List;
 import java.util.Optional;
@@ -19,6 +19,8 @@ public class ItemService {
     public List<Item> listAllItems(){
         return repository.findAll();
     }
+
+
 
     public List<Item> listAllAvailableItems(){
         return repository.findAllItems();

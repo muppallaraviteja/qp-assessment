@@ -11,13 +11,34 @@ insert into item(id,name,price,inventory) values(1010, 'item10',120.45,79);
 insert into item(id,name,price,inventory) values(1011, 'item11',120.45,0);
 insert into item(id,name,price,inventory) values(1012, 'item12',0.56,0);
 
+insert into customer(id,name,email,birthdate) values(1000, 'Ravi','ravi@email.com',CURRENT_DATE());
+insert into customer(id,name,email,birthdate) values(1001, 'Sai','sai@email.com',CURRENT_DATE());
+insert into customer(id,name,email,birthdate) values(1002, 'Hamsa','hamsa@email.com',CURRENT_DATE());
+insert into customer(id,name,email,birthdate) values(1003, 'Prashanth','prashanth@email.com',CURRENT_DATE());
 
---insert into order_details(id,name,price,customer_id) values (1001,'Product1',12.56,10000);
---insert into order_details(id,name,price,customer_id) values (1002,'Product2',105.56,10000);
---insert into order_details(id,name,price,customer_id) values (1003,'Product3',1023.56,10001);
---insert into order_details(id,name,price,customer_id) values (1004,'Product4',1006.56,10027);
---insert into order_details(id,name,price,customer_id) values (1005,'Product5',107.56,10027);
---insert into order_details(id,name,price,customer_id) values (1006,'Product6',1.56,10023);
---insert into order_details(id,name,price,customer_id) values (1007,'Product7',34.56,10018);
---insert into order_details(id,name,price,customer_id) values (1008,'Product8',086.56,10023);
---insert into order_details(id,name,price,customer_id) values (1009,'Product9',100.56,10018);
+insert into orders(customer_id,order_id) values(1000,2000);
+insert into orders(customer_id,order_id) values(1000,2001);
+insert into orders(customer_id,order_id) values(1000,2002);
+
+insert into orders(customer_id,order_id) values(1001,2003);
+insert into orders(customer_id,order_id) values(1001,2004);
+
+insert into orders(customer_id,order_id) values(1002,2005);
+
+insert into order_item_request (order_id, item_id,quantity) values(2000,1001,2);
+insert into order_item_request (order_id, item_id,quantity) values(2000,1002,1);
+insert into order_item_request (order_id, item_id,quantity) values(2000,1003,4);
+insert into order_item_request (order_id, item_id,quantity) values(2000,1004,3);
+
+insert into order_item_request (order_id, item_id,quantity) values(2001,1007,3);
+insert into order_item_request (order_id, item_id,quantity) values(2001,1008,2);
+
+insert into order_item_request (order_id, item_id,quantity) values(2002,1009,1);
+
+insert into order_item_request (order_id, item_id,quantity) values(2003,1011,2);
+insert into order_item_request (order_id, item_id,quantity) values(2003,1012,1);
+
+insert into order_item_request (order_id, item_id,quantity) values(2004,1007,3);
+
+insert into order_item_request (order_id, item_id,quantity) values(2005,1008,9);
+

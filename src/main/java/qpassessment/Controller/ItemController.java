@@ -23,11 +23,6 @@ public class ItemController {
         return service.listAllItems();
     }
 
-    @GetMapping("/item/available")
-    public List<Item> getAvailableItems(){
-        return service.listAllAvailableItems();
-    }
-
     @GetMapping("/item/{id}")
     public Item getItemById(@PathVariable Integer id){
         return service.listItemById(id);
@@ -52,6 +47,13 @@ public class ItemController {
         service.deleteItem(id);
         return ResponseEntity.ok().build();
     }
+
+    @GetMapping("/list/item")
+    public List<Item> getAvailableItems(){
+        return service.listAllAvailableItems();
+    }
+
+
 
 
 }

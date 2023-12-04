@@ -31,9 +31,11 @@ public class CustomSecurityConfiguration {
     @Bean
     public SecurityFilterChain filterChain(HttpSecurity http) throws Exception {
         http.authorizeHttpRequests(s->s
-                .requestMatchers(AntPathRequestMatcher.antMatcher("/customer")).hasRole("ADMIN")
-                .requestMatchers(AntPathRequestMatcher.antMatcher("/customer/paging")).hasRole("USER")
-                .requestMatchers(AntPathRequestMatcher.antMatcher("/hello")).permitAll()
+                .requestMatchers(AntPathRequestMatcher.antMatcher("/item")).hasRole("ADMIN")
+                .requestMatchers(AntPathRequestMatcher.antMatcher("/customer")).hasRole("USER")
+                .requestMatchers(AntPathRequestMatcher.antMatcher("/list/item")).hasRole("USER")
+                .requestMatchers(AntPathRequestMatcher.antMatcher("/order")).hasRole("USER")
+//                .requestMatchers(AntPathRequestMatcher.antMatcher("/hello")).permitAll()
                 .anyRequest().authenticated());
 
         http.formLogin(AbstractHttpConfigurer::disable);
