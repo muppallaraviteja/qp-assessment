@@ -1,8 +1,20 @@
+buildscript {
+	repositories {
+		mavenCentral()
+		gradlePluginPortal()
+	}
+	dependencies {
+		classpath "gradle.plugin.com.github.johnrengelman:shadow:7.1.2"
+	}
+}
+
 plugins {
 	id 'java'
 	id 'org.springframework.boot' version '3.2.0'
 	id 'io.spring.dependency-management' version '1.1.4'
+	id 'com.github.johnrengelman.shadow' version '7.1.2'
 }
+
 
 group = 'com.example'
 version = '0.0.1-SNAPSHOT'
@@ -13,6 +25,28 @@ java {
 
 repositories {
 	mavenCentral()
+}
+
+jar {
+	manifest {
+		attributes "Main-Class": "qpassessment.QpAssessmentApplication"
+	}
+	duplicatesStrategy(DuplicatesStrategy.EXCLUDE)
+
+	from {
+		configurations.runtimeClasspath.collect { it.isDirectory() ? it : zipTree(it) }
+	}
+}
+
+
+task customFatJar(type: Jar) {
+	manifest {
+		attributes 'Main-Class': 'qpassessment.QpAssessmentApplication'
+	}
+	archiveBaseName = 'all-in-one-jar'
+	duplicatesStrategy = DuplicatesStrategy.EXCLUDE
+	from { configurations.runtimeClasspath.collect { it.isDirectory() ? it : zipTree(it) } }
+	with jar
 }
 
 dependencies {
